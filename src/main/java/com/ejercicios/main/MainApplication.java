@@ -26,9 +26,13 @@ public class MainApplication {
 		System.out.println("Perimetro del pentagono es " + multiplicar(lado_pentagono, 5) + " cm.");
 
 		int precio_producto = 200;
-		final int IVA = 21;
-		int iva_producto = dividir(multiplicar(precio_producto, IVA), 100);
+		int iva_producto = calcularIVA(precio_producto);
 		System.out.println("El producto sin IVA sale $" + restar(precio_producto, iva_producto));
+	}
+
+	static int calcularIVA(int valor) {
+		final int IVA = 21;
+		return dividir(multiplicar(valor, IVA), 100);
 	}
 
 	static int sumar(int sum1, int sum2) {
