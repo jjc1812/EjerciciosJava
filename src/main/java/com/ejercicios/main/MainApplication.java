@@ -28,6 +28,18 @@ public class MainApplication {
 		int precio_producto = 200;
 		int iva_producto = calcularIVA(precio_producto);
 		System.out.println("El producto sin IVA sale $" + restar(precio_producto, iva_producto));
+
+		int nota1 = 7;
+		int nota2 = 8;
+		System.out.println("Nota final : " + sumar(dividir(sumar(nota1, nota2), 2), sumar(nota1, nota2)%2));
+
+		int producto1 = 2500;
+		int producto2 = 1800;
+		System.out.println("Valor final de los productos : " + sumar(sumarIVA(producto1), sumarIVA(producto2)));
+	}
+
+	static int sumarIVA(int producto){
+		return producto + calcularIVA(producto);
 	}
 
 	static int calcularIVA(int valor) {
