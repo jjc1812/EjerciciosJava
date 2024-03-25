@@ -36,6 +36,33 @@ public class MainApplication {
 		int producto1 = 2500;
 		int producto2 = 1800;
 		System.out.println("Valor final de los productos : " + sumar(sumarIVA(producto1), sumarIVA(producto2)));
+
+		int monto_cliente = 5500;
+		int monto_pagar = sumar(sumarIVA(producto1), sumarIVA(producto2));
+		System.out.println("Vuelto del cliente : " + restar(monto_cliente, monto_pagar));
+
+		// Operadores Logicos igual ==  ____  distinto !=  ____
+		// mayor > ____  menor <  ____  mayor o igual >=  ____  menor o igual <=
+		// and &&  ____  or || 
+		int numero1 = 10;
+		int numero2 = 20;
+		System.out.println("Mayor : " + mayor(numero1, numero2));
+		System.out.println("Menor : " + menor(numero1, numero2));
+		System.out.println("Igual : " + igual(numero1, numero2));
+		boolean pago_exacto = monto_cliente == monto_pagar;
+		System.out.println("El cliente pago exacto? " + pago_exacto);
+	}
+
+	static boolean mayor(int mayor1, int mayor2){
+		return mayor1 > mayor2;
+	}
+
+	static boolean menor(int menor1, int menor2){
+		return menor1 < menor2;
+	}
+
+	static boolean igual (int igual1, int igual2){
+		return igual1 == igual2;
 	}
 
 	static int sumarIVA(int producto){
