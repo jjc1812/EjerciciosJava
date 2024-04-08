@@ -1,5 +1,7 @@
 package com.ejercicios.main;
 
+import java.util.Scanner;
+
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -61,6 +63,56 @@ public class MainApplication {
 		} else {
 			System.out.println("Es un jubilado.");
 		}
+
+		// input por consola
+		Scanner scanner = new Scanner(System.in);
+
+        //System.out.print("Ingrese su nombre: ");
+        //String nombre = scanner.nextLine();
+		//System.out.println("Hola " + nombre);
+
+		//Ejercicio 20
+		int prod1 = 200;
+		int prod2 = 20000;
+		int prod3 = 2000;
+		System.out.println(identificarProductosIgules(prod1, prod2, prod3));
+
+		//Ejercicio 21
+		System.out.println(identificarProductosDistintos(prod1, prod2, prod3));
+
+		//Cadena de caracteres
+		String cadena1 = "Buen dia";
+		String cadena2 = "buenas noches";
+
+		System.out.println("Largo cadena 1: " + cadena1.length());
+		System.out.println("Largo cadena 2: " + cadena2.length());
+		System.out.println("Concatenacion: " + cadena1.concat(cadena2));
+		System.out.println(cadena1 + " " + cadena2);
+		System.out.println("Busqueda de caracteres: " + cadena1.indexOf("a"));
+		System.out.println("Igualdad entre cadenas: " + cadena1.equals(cadena2));
+		System.out.println("Mayusculas: " + cadena1.toUpperCase());
+		System.out.println("Minusculas: " + cadena1.toLowerCase());
+		System.out.println("Separar una cadena: " + cadena1.split(" ")[1]);
+	}
+
+	static boolean identificarProductosDistintos(int prod1, int prod2, int prod3){
+		if (calcularIVA(prod1) != calcularIVA(prod2) && calcularIVA(prod2) != calcularIVA(prod3)
+		 && calcularIVA(prod1) != calcularIVA(prod3)) { 
+			return true; 
+		}
+		return false;
+	}
+
+	static boolean identificarProductosIgules(int prod1, int prod2, int prod3){
+		boolean prod_iguales = false;
+		if (calcularIVA(prod1) == calcularIVA(prod2)) {
+			prod_iguales = true;
+		} else if (calcularIVA(prod2) == calcularIVA(prod3)){
+			prod_iguales = true;
+		} else if (calcularIVA(prod1) == calcularIVA(prod3)) {
+			prod_iguales = true;			
+		}
+		return prod_iguales;
 	}
 
 	static boolean mayor(int mayor1, int mayor2){
