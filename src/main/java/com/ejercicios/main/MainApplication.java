@@ -51,6 +51,16 @@ public class MainApplication {
 		System.out.println("Igual : " + igual(numero1, numero2));
 		boolean pago_exacto = monto_cliente == monto_pagar;
 		System.out.println("El cliente pago exacto? " + pago_exacto);
+
+		// Condicionales if(condicion booleana) _________ else ________ else if (condicion booleana)
+		int edad = 8;
+		if (mayor(edad, 17) && menor(edad, 65)) {
+			System.out.println("Es un adulto.");
+		} else if (menor(edad, 18)) {
+			System.out.println("ES menor de edad.");
+		} else {
+			System.out.println("Es un jubilado.");
+		}
 	}
 
 	static boolean mayor(int mayor1, int mayor2){
