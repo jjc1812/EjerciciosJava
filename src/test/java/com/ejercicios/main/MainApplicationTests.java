@@ -1,13 +1,15 @@
 package com.ejercicios.main;
 
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.Assert.assertTrue;
 
-@SpringBootTest
+import org.junit.Test;
+
 class MainApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+    @Test
+    public void shouldAnswerWithTrue()
+    {
+        assertTrue( true );
+    }
 
 }

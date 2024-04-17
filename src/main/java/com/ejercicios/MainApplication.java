@@ -1,12 +1,10 @@
-package com.ejercicios.main;
+package com.ejercicios;
 
 import java.util.Scanner;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-@SpringBootApplication
 public class MainApplication {
-	public static void main(String[] args) {
+
+    public static void main( String[] args ){
 		final int NUM1 = 10;
 		int num2 = 5;
 
@@ -93,6 +91,27 @@ public class MainApplication {
 		System.out.println("Mayusculas: " + cadena1.toUpperCase());
 		System.out.println("Minusculas: " + cadena1.toLowerCase());
 		System.out.println("Separar una cadena: " + cadena1.split(" ")[1]);
+
+		// iteradores
+		for(int iterador = 0; iterador < 10; iterador++){
+			System.out.println(iterador);
+		}
+
+		int iva_producto_iterador = 2000;
+		while (iva_producto_iterador < 10000) {
+			iva_producto_iterador+=calcularIVA(iva_producto_iterador);
+			System.out.println(iva_producto_iterador);
+		}
+
+		//listas
+		int lista_numeros[] = {2, 4, 6, 8};
+		//valores  [2, 4, 6, 8]
+		//posicion [0, 1, 2, 3]
+		System.out.println(lista_numeros[0]);
+		// lista_numeros.length largo de la lista
+		for(int index = 0; index < lista_numeros.length; index++){
+			System.out.println(lista_numeros[index]);
+		}
 	}
 
 	static boolean identificarProductosDistintos(int prod1, int prod2, int prod3){
