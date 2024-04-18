@@ -1,5 +1,6 @@
 package com.ejercicios;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class MainApplication {
@@ -104,6 +105,10 @@ public class MainApplication {
 		}
 
 		//listas
+		ArrayList lista = new ArrayList();
+		lista.add("hola");
+		System.out.println(lista.get(0));
+		
 		int lista_numeros[] = {2, 4, 6, 8};
 		//valores  [2, 4, 6, 8]
 		//posicion [0, 1, 2, 3]
@@ -111,6 +116,33 @@ public class MainApplication {
 		// lista_numeros.length largo de la lista
 		for(int index = 0; index < lista_numeros.length; index++){
 			System.out.println(lista_numeros[index]);
+		}
+
+		//ejercicio de listas en clase
+		ArrayList<String> muebles = new ArrayList<String>(){{
+			add("mesa"); 
+			add("comoda");
+			add("biblioteca");
+			add("escritorio");
+			add("cama");
+			add("alacena");
+		}};
+		ArrayList<Integer> precios = new ArrayList<Integer>() {{
+			add(200000);
+			add(250000);
+			add(500000);
+			add(550000);
+			add(350000);
+			add(270000);
+		}};
+		String mueble_entrada = "Cama";
+		String mueble = muebles.stream().filter(e -> e.equalsIgnoreCase(mueble_entrada)).findFirst().orElse(null);
+		if (mueble!=null) {
+			int posicion = muebles.indexOf(mueble);
+			System.out.println("El producto " + mueble + " esta en stock.");
+			System.out.println("Su valor es de " + precios.get(posicion));
+		} else {
+			System.out.println("El producto no esta disponible.");
 		}
 	}
 
