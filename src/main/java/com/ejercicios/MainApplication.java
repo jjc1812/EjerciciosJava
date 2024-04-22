@@ -1,7 +1,10 @@
 package com.ejercicios;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 
 public class MainApplication {
 
@@ -127,6 +130,7 @@ public class MainApplication {
 			add("cama");
 			add("alacena");
 		}};
+
 		ArrayList<Integer> precios = new ArrayList<Integer>() {{
 			add(200000);
 			add(250000);
@@ -135,8 +139,15 @@ public class MainApplication {
 			add(350000);
 			add(270000);
 		}};
+
 		String mueble_entrada = "Cama";
-		String mueble = muebles.stream().filter(e -> e.equalsIgnoreCase(mueble_entrada)).findFirst().orElse(null);
+
+		String mueble = muebles
+		.stream()
+		.filter(m -> m.equalsIgnoreCase(mueble_entrada))
+		.findFirst()
+		.orElse(null);
+
 		if (mueble!=null) {
 			int posicion = muebles.indexOf(mueble);
 			System.out.println("El producto " + mueble + " esta en stock.");
@@ -144,6 +155,60 @@ public class MainApplication {
 		} else {
 			System.out.println("El producto no esta disponible.");
 		}
+
+		//ejercicio 34
+		ArrayList<String> autos = new ArrayList<String>(){{
+			add("fiat"); 
+			add("ford");
+			add("toyota");
+			add("ford");
+			add("fiat");
+			add("fiat");
+			add("ford");
+			add("toyota");
+		}};
+
+		List<String> autosOrdenados = autos.stream().sorted().collect(Collectors.toList());
+		int contar_auto = 1;
+		
+		for(int i=1; i<autosOrdenados.size(); i++){
+			if(autosOrdenados.get(i-1).equals(autosOrdenados.get(i))){
+				contar_auto++;
+			}
+			else {
+				System.out.println("Hay " + contar_auto + " autos de marca " + autosOrdenados.get(i-1));
+				contar_auto = 1;
+			}
+			if (i == autosOrdenados.size()-1) {
+				System.out.println("Hay " + contar_auto + " autos de marca " + autosOrdenados.get(i));
+			}
+		}
+
+		// Ejercicio 35
+		ArrayList<Integer> años_febricacion = new ArrayList<Integer>() {{
+			add(1988);
+			add(1998);
+			add(1970);
+			add(1999);
+			add(2010);
+			add(2004);
+			add(1992);
+			add(1986);
+		}};
+
+		for(int x=0; x<autos.size(); x++){
+			System.out.println("Marca: " + autos.get(x) + " Año: " + años_febricacion.get(x));
+		}
+
+		//Ejercicio 36
+		ArrayList<String> autos_no_paga_patente = new ArrayList<String>();
+
+		for(int y=0; y<autos.size(); y++){
+			if(años_febricacion.get(y)<1999){
+				autos_no_paga_patente.add(autos.get(y) + " año: " + años_febricacion.get(y));
+			}
+		}
+		System.out.println(autos_no_paga_patente.toString());
 	}
 
 	static boolean identificarProductosDistintos(int prod1, int prod2, int prod3){
