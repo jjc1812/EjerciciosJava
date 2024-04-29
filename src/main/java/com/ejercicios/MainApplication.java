@@ -1,7 +1,9 @@
 package com.ejercicios;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
@@ -209,6 +211,31 @@ public class MainApplication {
 			}
 		}
 		System.out.println(autos_no_paga_patente.toString());
+
+		//Maps
+		Map<Integer, String> nuevo_map = new HashMap<Integer, String>();
+		nuevo_map.put(1, "casa");
+		nuevo_map.put(3, "auto");
+		nuevo_map.put(2, "mesa");
+		nuevo_map.put(4, "camion");
+
+		System.out.println(nuevo_map.get(4));
+
+		nuevo_map.remove(4);
+
+		System.out.println(nuevo_map.containsValue("mesa"));
+
+		System.out.println(nuevo_map.containsKey(1));
+
+		System.out.println(nuevo_map.size());
+
+		System.out.println(nuevo_map.isEmpty());
+
+		System.out.println(nuevo_map.keySet());
+
+		System.out.println(nuevo_map.values());
+
+		System.out.println(nuevo_map.getOrDefault(4, "no existe"));
 	}
 
 	static boolean identificarProductosDistintos(int prod1, int prod2, int prod3){
