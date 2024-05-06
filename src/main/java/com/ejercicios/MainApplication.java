@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 public class MainApplication {
@@ -110,7 +109,7 @@ public class MainApplication {
 		}
 
 		//listas
-		ArrayList lista = new ArrayList();
+		ArrayList<String> lista = new ArrayList<>();
 		lista.add("hola");
 		System.out.println(lista.get(0));
 		
@@ -236,6 +235,29 @@ public class MainApplication {
 		System.out.println(nuevo_map.values());
 
 		System.out.println(nuevo_map.getOrDefault(4, "no existe"));
+
+		nuevo_map.forEach((k, v) -> System.out.println("Clave: " + k + " Value: " + v));
+
+		//Ejercicio 44
+		Map<Integer, String> descripcion_productos = new HashMap<Integer, String>();
+		descripcion_productos.put(1000, "masa para pizza");
+		descripcion_productos.put(1001, "harina 0000");
+		descripcion_productos.put(1002, "azucar");
+		descripcion_productos.put(1003, "polenta");	
+
+		Map<Integer, Integer> precio_productos = new HashMap<Integer, Integer>();
+		precio_productos.put(1000, 2000);
+		precio_productos.put(1001, 800);
+		precio_productos.put(1002, 100);
+		precio_productos.put(1003, 1800);
+
+		int codigo_barras = 1000;
+
+		if (descripcion_productos.containsKey(codigo_barras)) {
+			System.out.println(descripcion_productos.get(codigo_barras) + " = $" + precio_productos.get(codigo_barras));
+		} else {
+			System.out.println("NO ESTA EN STOCK");
+		}
 	}
 
 	static boolean identificarProductosDistintos(int prod1, int prod2, int prod3){
